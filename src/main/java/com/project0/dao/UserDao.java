@@ -3,6 +3,7 @@ package com.project0.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.project0.models.Application;
 import com.project0.models.User;
 
 public interface UserDao {
@@ -11,7 +12,7 @@ public interface UserDao {
 	
 	User getUserByUsername(String username);
 	
-	void createUser(User u) throws SQLException;
+	void createApplication(Application a) throws SQLException;
 	
 	void updateUser(User u);
 	

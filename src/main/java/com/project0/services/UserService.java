@@ -7,6 +7,7 @@ import com.project0.exceptions.InvalidCredentialsException;
 import com.project0.exceptions.UserDoesNotExistException;
 import com.project0.exceptions.UsernameAlreadyExistsException;
 import com.project0.logging.Logging;
+import com.project0.models.Application;
 import com.project0.models.User;
 
 public class UserService {
@@ -17,19 +18,20 @@ public class UserService {
 		this.uDao = u;
 	}
 	
-	public User apply(String username, String password, String firstN, String lastN, Integer ssn, String email) throws UsernameAlreadyExistsException {
+	public Application apply(String username, String password, String firstN, String lastN, int ssn, String email) throws UsernameAlreadyExistsException {
 		
-		User u = new User(username, password, firstN, lastN, ssn, email);
+		Application a = new Application(username, password, firstN, lastN, ssn, email);
 		
 		try {
-			uDao.createUser(u);
-			Logging.logger.info("New user was registered");
+			uDao.createApplication(a);
+			Logging.logger.info("New application was submitted");
 		} catch (SQLException e) {
+			e.printStackTrace();
 			Logging.logger.warn("Username created that already exists in the database");
-			throw new UsernameAlreadyExistsException();
+			//throw new UsernameAlreadyExistsException();
 		}
 		
-		return u;
+		return a;
 	}
 	
 	public User signIn(String username, String password) throws UserDoesNotExistException, InvalidCredentialsException{
@@ -48,6 +50,9 @@ public class UserService {
 			Logging.logger.info("User was logged in");
 			return u;
 		}
+	}
+	
+	public void userDashboard() {
 		
 	}
 

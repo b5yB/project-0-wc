@@ -1,3 +1,44 @@
 2021-10-10 14:38:39 INFO  Logging:48 - User was logged in
 2021-10-11 11:51:52 INFO  Logging:26 - New user was registered
 2021-10-11 11:52:48 INFO  Logging:48 - User was logged in
+2021-10-11 18:41:16 INFO  Logging:33 - Employee was logged in
+2021-10-11 23:35:32 WARN  Logging:28 - Username created that already exists in the database
+2021-10-11 23:36:27 WARN  Logging:28 - Username created that already exists in the database
+2021-10-11 23:37:16 WARN  Logging:28 - Username created that already exists in the database
+2021-10-11 23:38:10 WARN  Logging:28 - Username created that already exists in the database
+2021-10-11 23:48:56 WARN  Logging:29 - Username created that already exists in the database
+2021-10-11 23:59:16 WARN  Logging:29 - Username created that already exists in the database
+2021-10-12 00:16:53 WARN  Logging:29 - Username created that already exists in the database
+2021-10-12 00:31:55 WARN  Logging:29 - Username created that already exists in the database
+2021-10-12 00:34:45 WARN  Logging:29 - Username created that already exists in the database
+2021-10-12 00:36:09 WARN  Logging:29 - Username created that already exists in the database
+2021-10-12 00:39:39 WARN  Logging:30 - Username created that already exists in the database
+2021-10-12 00:43:48 WARN  Logging:30 - Username created that already exists in the database
+2021-10-12 00:47:02 INFO  Logging:27 - New application was submitted
+2021-10-12 01:10:03 INFO  Logging:27 - New application was submitted
+2021-10-12 01:53:15 INFO  Logging:37 - Employee was logged in
+2021-10-12 01:55:28 INFO  Logging:37 - Employee was logged in
+2021-10-12 01:56:47 INFO  Logging:37 - Employee was logged in
+2021-10-12 01:58:15 INFO  Logging:37 - Employee was logged in
+2021-10-12 02:01:21 INFO  Logging:37 - Employee was logged in
+2021-10-12 02:04:11 INFO  Logging:37 - Employee was logged in
+2021-10-12 02:05:03 INFO  Logging:37 - Employee was logged in
+2021-10-12 02:06:32 INFO  Logging:37 - Employee was logged in
+2021-10-12 02:21:15 WARN  Logging:31 - Employee tried logging in that does not exist
+2021-10-12 02:21:32 INFO  Logging:39 - Employee was logged in
+2021-10-12 02:26:59 INFO  Logging:39 - Employee was logged in
+2021-10-12 02:36:54 INFO  Logging:39 - Employee was logged in
+2021-10-12 02:51:47 INFO  Logging:39 - Employee was logged in
+2021-10-12 02:53:38 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:01:27 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:03:11 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:05:15 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:11:32 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:13:33 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:16:02 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:17:22 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:19:42 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:32:46 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:37:25 INFO  Logging:38 - Employee was logged in
+2021-10-12 03:38:26 INFO  Logging:27 - New application was submitted
+2021-10-12 03:38:48 INFO  Logging:38 - Employee was logged in

@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project0.models.Application;
 import com.project0.models.User;
 import com.project0.utils.ConnectionUtil;
 
@@ -81,22 +82,22 @@ ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 	//We use prepared statements to precompile the sql query and protect against SQL Injection
 	
 	@Override
-	public void createUser(User u) throws SQLException {
+	public void createApplication(Application a) throws SQLException {
+		
 		
 		Connection con = conUtil.getCon();
 		
 		//We will still create the sql string, but with some small changes
-		String sql = "INSERT INTO users(username, password, first_name, last_name, ssn, email, bankerid) values"
-				+ "(?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO applications(username, password, firstN, lastN, ssn, email) values"
+				+ "(?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
-		ps.setString(1, u.getUsername());
-		ps.setString(2, u.getPassword());
-		ps.setString(3, u.getFirstN());
-		ps.setString(4, u.getLastN());
-		ps.setInt(5, u.getSsn());
-		ps.setString(6, u.getEmail());
-		ps.setInt(7, u.getBankerid());
+		ps.setString(1, a.getUsername());
+		ps.setString(2, a.getPassword());
+		ps.setString(3, a.getFirstN());
+		ps.setString(4, a.getLastN());
+		ps.setInt(5, a.getSsn());
+		ps.setString(6, a.getEmail());
 		
 		ps.execute();
 		

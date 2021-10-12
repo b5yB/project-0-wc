@@ -8,23 +8,25 @@ public class Employee {
 	private String firstN;
 	private String lastN;
 	private String email;
+	private int adminid;
 	
 	public Employee() {
 		
 	}
 	
 	//to db
-	public Employee(String username, String password, String firstN, String lastN, String email) {
+	public Employee(String username, String password, String firstN, String lastN, String email, int adminid) {
 		
 		this.username = username;
 		this.password = password;
 		this.firstN = firstN;
 		this.lastN = lastN;
 		this.email = email;
+		this.adminid = adminid;
 	}
 	
 	//from db
-	public Employee (int bankerid, String username, String password, String firstN, String lastN, String email) {
+	public Employee (int bankerid, String username, String password, String firstN, String lastN, String email, int adminid) {
 		
 		this.bankerid = bankerid;
 		this.username = username;
@@ -32,6 +34,7 @@ public class Employee {
 		this.firstN = firstN;
 		this.lastN = lastN;
 		this.email = email;
+		this.adminid = adminid;
 		
 	}
 
@@ -82,11 +85,18 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public int getAdminid() {
+		return adminid;
+	}
+	public void setAdminid(int adminid) {
+		this.adminid = adminid;
+	}
 
 	@Override
 	public String toString() {
 		return "Employee [bankerid=" + bankerid + ", username=" + username + ", password=" + password + ", firstN="
-				+ firstN + ", lastN=" + lastN + ", email=" + email + "]";
+				+ firstN + ", lastN=" + lastN + ", email=" + email + ", adminid=" + adminid + "]";
 	}
 	
 }

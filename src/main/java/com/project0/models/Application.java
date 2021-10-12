@@ -1,67 +1,59 @@
 package com.project0.models;
 
-public class Admin {
+public class Application {
 	
 	/*
-	adminid int primary key generated always as identity,
-	bankerid int not null unique,
+	appnum int primary key generated always as identity,
 	username varchar(30) not null unique,
 	password varchar(30) not null,
-	firstN varchar(30) not null,
-	lastN varchar(30) not null,
+	first_name varchar(30) not null,
+	last_name varchar(30) not null,
+	ssn int not null unique,
 	email varchar(50) not null unique
 	*/
 	
-	private int adminid;
-	private int bankerid;
+	private int appnum;
 	private String username;
 	private String password;
 	private String firstN;
 	private String lastN;
+	private int ssn;
 	private String email;
 
-	public Admin() {
+	public Application() {
 		
 	}
 	
 	//to db
-	public Admin (int bankerid, String username, String password, String firstN, String lastN, String email) {
+	public Application (String username, String password, String firstN, String lastN, int ssn, String email) {
 		
-		this.bankerid = bankerid;
 		this.username = username;
 		this.password = password;
 		this.firstN = firstN;
 		this.lastN = lastN;
+		this.ssn = ssn;
 		this.email = email;
 	}
 	
 	//from db
-	public Admin (int adminid, int bankerid, String username, String password, String firstN, String lastN, String email) {
+	public Application (int appnum, String username, String password, String firstN, String lastN, int ssn, String email) {
 		
-		this.adminid = adminid;
-		this.bankerid = bankerid;
+		this.appnum = appnum;
 		this.username = username;
 		this.password = password;
 		this.firstN = firstN;
 		this.lastN = lastN;
+		this.ssn = ssn;
 		this.email = email;
 		
 	}
 
-	public int getAdminid() {
-		return adminid;
+	public int getAppnum() {
+		return appnum;
 	}
 
-	public void setAdminid(int adminid) {
-		this.adminid = adminid;
-	}
-
-	public int getBankerid() {
-		return bankerid;
-	}
-
-	public void setBankerid(int bankerid) {
-		this.bankerid = bankerid;
+	public void setAppnum(int appnum) {
+		this.appnum = appnum;
 	}
 
 	public String getUsername() {
@@ -95,6 +87,14 @@ public class Admin {
 	public void setLastN(String lastN) {
 		this.lastN = lastN;
 	}
+	
+	public int getSsn() {
+		return ssn;
+	}
+
+	public void setSsn(int ssn) {
+		this.ssn = ssn;
+	}
 
 	public String getEmail() {
 		return email;
@@ -106,8 +106,8 @@ public class Admin {
 
 	@Override
 	public String toString() {
-		return "Admin [adminid=" + adminid + ", bankerid=" + bankerid + ", username=" + username + ", password="
-				+ password + ", firstN=" + firstN + ", lastN=" + lastN + ", email=" + email + "]";
+		return "Application [appnum=" + appnum + ", username=" + username + ", password="
+				+ password + ", firstN=" + firstN + ", lastN=" + lastN + ", ssn=" + ssn + ", email=" + email + "]";
 	}
 	
 }
