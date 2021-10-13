@@ -55,17 +55,13 @@ public class EmployeeDaoDB implements EmployeeDao {
 		List<Application> appList = new ArrayList<Application>();
 		
 		try {
-			//Make the actual connection to the db
 			Connection con = conUtil.getCon();
 			
-			//Create a simple statement
 			String sql = "SELECT * FROM applications";
 			
-			//We need to create a statement with the sql string
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
-			//We have to loop through the ResultSet and create objects based off the return
 			while(rs.next()) {
 				appList.add(new Application(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getDouble(8)));
 			}
@@ -102,8 +98,6 @@ public void approveApplication(int appnum, String username, int bankerid) throws
 			app.setOpeningBalance(rs.getDouble(8));
 		}
 		
-		
-		//We will still create the sql string, but with some small changes
 		String sql2 = "INSERT INTO users(username, password, firstN, lastN, ssn, email, balance, bankerid) values"
 				+ "(?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql2);
@@ -118,17 +112,6 @@ public void approveApplication(int appnum, String username, int bankerid) throws
 		ps.setInt(8, bankerid);
 		
 		ps.execute();
-		
-		/*
-		create table if not exists accounts (
-				acctid int primary key generated always as identity,
-				useracctnum int references users(acctnum) not null unique,
-				firstN varchar(30) not null,
-				lastN varchar(30) not null,
-				balance int not null,
-				bankerid int not null unique	
-			);
-		*/
 		
 		/*
 		String sql3 = "SELECT * FROM users WHERE users.username = '" + username + "'";

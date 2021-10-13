@@ -112,3 +112,7 @@
 2021-10-13 07:29:52 INFO  Logging:132 - User was logged out
 2021-10-13 07:30:20 INFO  Logging:48 - User was logged in
 2021-10-13 07:36:05 INFO  Logging:132 - User was logged out
+2021-10-13 09:12:41 INFO  Logging:29 - New application was submitted
+2021-10-13 09:13:01 INFO  Logging:33 - Employee was logged in
+2021-10-13 09:13:31 INFO  Logging:89 - Admin was logged out
+2021-10-13 09:14:16 INFO  Logging:48 - User was logged in
