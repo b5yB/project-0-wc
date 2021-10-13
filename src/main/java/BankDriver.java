@@ -27,9 +27,6 @@ public class BankDriver {
 		
 		Boolean done = false;
 		
-		/*employee = eDao.getEmployeeByUsername("test1");
-		System.out.println(employee);*/
-		
 		while (!done) {
 			
 		System.out.println("Welcome! Please press '1' for customer login, or '2' for employee login.");
@@ -49,7 +46,7 @@ public class BankDriver {
 						try {
 							u = uServ.signIn(username, password);
 							System.out.println("Welcome back, " + u.getUsername());
-							uServ.userDashboard();
+							uServ.userDashboard(username);
 							done = true;
 						} 
 						
@@ -63,17 +60,19 @@ public class BankDriver {
 						String username = scan.nextLine();
 						System.out.print("Please enter your password: ");
 						String password = scan.nextLine();
-						System.out.print("Please enter you first name: ");
+						System.out.print("Please enter your first name: ");
 						String firstN = scan.nextLine();
-						System.out.print("Please enter you last name: ");
+						System.out.print("Please enter your last name: ");
 						String lastN = scan.nextLine();
-						System.out.print("Please enter you ssn: ");
+						System.out.print("Please enter your ssn: ");
 						int ssn = Integer.parseInt(scan.nextLine());
-						System.out.print("Please enter you email: ");
+						System.out.print("Please enter your email: ");
 						String email = scan.nextLine();
+						System.out.print("Please enter your Opening Balance: ");
+						double openingBalance = Double.parseDouble(scan.nextLine());
 						
 						try { 
-							uServ.apply(username, password, firstN, lastN, ssn, email);
+							uServ.apply(username, password, firstN, lastN, ssn, email, openingBalance);
 							System.out.println("Thank you for applying! You can expect our decision via email within 24 hours. ");
 							done = true;
 						}

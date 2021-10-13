@@ -19,13 +19,14 @@ public class Application {
 	private String lastN;
 	private int ssn;
 	private String email;
+	private double openingBalance;
 
 	public Application() {
 		
 	}
 	
 	//to db
-	public Application (String username, String password, String firstN, String lastN, int ssn, String email) {
+	public Application (String username, String password, String firstN, String lastN, int ssn, String email, double openingBalance) {
 		
 		this.username = username;
 		this.password = password;
@@ -33,10 +34,11 @@ public class Application {
 		this.lastN = lastN;
 		this.ssn = ssn;
 		this.email = email;
+		this.openingBalance = openingBalance;
 	}
 	
 	//from db
-	public Application (int appnum, String username, String password, String firstN, String lastN, int ssn, String email) {
+	public Application (int appnum, String username, String password, String firstN, String lastN, int ssn, String email, double openingBalance) {
 		
 		this.appnum = appnum;
 		this.username = username;
@@ -45,6 +47,7 @@ public class Application {
 		this.lastN = lastN;
 		this.ssn = ssn;
 		this.email = email;
+		this.openingBalance = openingBalance;
 		
 	}
 
@@ -103,11 +106,19 @@ public class Application {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public double getOpeningBalance() {
+		return openingBalance;
+	}
+
+	public void setOpeningBalance(double openingBalance) {
+		this.openingBalance = openingBalance;
+	}
 
 	@Override
 	public String toString() {
 		return "Application [appnum=" + appnum + ", username=" + username + ", password="
-				+ password + ", firstN=" + firstN + ", lastN=" + lastN + ", ssn=" + ssn + ", email=" + email + "]";
+				+ password + ", firstN=" + firstN + ", lastN=" + lastN + ", ssn=" + ssn + ", email=" + email + ", openingBalance=" + openingBalance +"]";
 	}
 	
 }

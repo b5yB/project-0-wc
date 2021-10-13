@@ -42,3 +42,73 @@
 2021-10-12 03:37:25 INFO  Logging:38 - Employee was logged in
 2021-10-12 03:38:26 INFO  Logging:27 - New application was submitted
 2021-10-12 03:38:48 INFO  Logging:38 - Employee was logged in
+2021-10-12 09:41:41 INFO  Logging:27 - New application was submitted
+2021-10-12 09:43:18 INFO  Logging:38 - Employee was logged in
+2021-10-12 11:24:18 WARN  Logging:30 - Username created that already exists in the database
+2021-10-12 21:25:17 WARN  Logging:30 - Username created that already exists in the database
+2021-10-12 21:29:59 INFO  Logging:27 - New application was submitted
+2021-10-12 21:30:24 INFO  Logging:38 - Employee was logged in
+2021-10-12 21:31:30 INFO  Logging:50 - User was logged in
+2021-10-12 21:47:42 INFO  Logging:27 - New application was submitted
+2021-10-12 21:48:13 INFO  Logging:38 - Employee was logged in
+2021-10-12 22:43:24 INFO  Logging:30 - New application was submitted
+2021-10-12 22:43:44 INFO  Logging:38 - Employee was logged in
+2021-10-12 22:44:28 INFO  Logging:53 - User was logged in
+2021-10-12 22:45:43 INFO  Logging:53 - User was logged in
+2021-10-12 22:55:05 INFO  Logging:53 - User was logged in
+2021-10-12 22:59:20 INFO  Logging:53 - User was logged in
+2021-10-12 22:59:32 INFO  Logging:87 - User was logged out
+2021-10-12 23:03:40 INFO  Logging:38 - Employee was logged in
+2021-10-12 23:15:54 INFO  Logging:33 - Employee was logged in
+2021-10-12 23:19:23 INFO  Logging:33 - Employee was logged in
+2021-10-12 23:19:28 INFO  Logging:86 - Admin was logged out
+2021-10-12 23:19:53 INFO  Logging:48 - User was logged in
+2021-10-12 23:19:55 INFO  Logging:81 - User was logged out
+2021-10-12 23:20:09 INFO  Logging:33 - Employee was logged in
+2021-10-12 23:23:28 INFO  Logging:33 - Employee was logged in
+2021-10-12 23:23:36 INFO  Logging:89 - Admin was logged out
+2021-10-12 23:48:38 INFO  Logging:48 - User was logged in
+2021-10-12 23:49:30 INFO  Logging:86 - Deposit succesful
+2021-10-12 23:51:54 INFO  Logging:48 - User was logged in
+2021-10-12 23:52:19 INFO  Logging:86 - Deposit succesful
+2021-10-12 23:59:21 INFO  Logging:48 - User was logged in
+2021-10-12 23:59:32 INFO  Logging:86 - Deposit succesful
+2021-10-13 00:08:47 INFO  Logging:48 - User was logged in
+2021-10-13 00:09:16 INFO  Logging:86 - Deposit succesful
+2021-10-13 00:17:24 INFO  Logging:48 - User was logged in
+2021-10-13 00:17:37 INFO  Logging:86 - Deposit succesful
+2021-10-13 00:33:15 INFO  Logging:48 - User was logged in
+2021-10-13 00:33:27 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:13:00 INFO  Logging:48 - User was logged in
+2021-10-13 06:13:16 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:31:12 INFO  Logging:48 - User was logged in
+2021-10-13 06:39:26 INFO  Logging:48 - User was logged in
+2021-10-13 06:42:46 INFO  Logging:48 - User was logged in
+2021-10-13 06:42:58 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:47:52 INFO  Logging:48 - User was logged in
+2021-10-13 06:48:17 INFO  Logging:48 - User was logged in
+2021-10-13 06:49:06 INFO  Logging:48 - User was logged in
+2021-10-13 06:49:19 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:51:01 INFO  Logging:48 - User was logged in
+2021-10-13 06:51:30 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:53:42 INFO  Logging:48 - User was logged in
+2021-10-13 06:54:07 INFO  Logging:48 - User was logged in
+2021-10-13 06:54:22 INFO  Logging:86 - Deposit succesful
+2021-10-13 06:54:45 INFO  Logging:117 - User was logged out
+2021-10-13 06:55:04 INFO  Logging:48 - User was logged in
+2021-10-13 06:58:47 INFO  Logging:48 - User was logged in
+2021-10-13 06:59:11 INFO  Logging:102 - Withdrawal succesful
+2021-10-13 06:59:14 INFO  Logging:117 - User was logged out
+2021-10-13 06:59:34 INFO  Logging:48 - User was logged in
+2021-10-13 07:23:41 INFO  Logging:29 - New application was submitted
+2021-10-13 07:23:55 INFO  Logging:33 - Employee was logged in
+2021-10-13 07:25:04 INFO  Logging:89 - Admin was logged out
+2021-10-13 07:25:24 INFO  Logging:48 - User was logged in
+2021-10-13 07:26:28 INFO  Logging:48 - User was logged in
+2021-10-13 07:29:09 INFO  Logging:48 - User was logged in
+2021-10-13 07:29:26 INFO  Logging:120 - Transfer succesful
+2021-10-13 07:29:29 INFO  Logging:132 - User was logged out
+2021-10-13 07:29:45 INFO  Logging:48 - User was logged in
+2021-10-13 07:29:52 INFO  Logging:132 - User was logged out
+2021-10-13 07:30:20 INFO  Logging:48 - User was logged in
+2021-10-13 07:36:05 INFO  Logging:132 - User was logged out

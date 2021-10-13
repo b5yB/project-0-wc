@@ -13,6 +13,6 @@ public interface EmployeeDao {
 	
 	List<Application> getApplications();
 	
-	void approveApplication(int appnum, int bankerid) throws SQLException ;
+	void approveApplication(int appnum, String username, int bankerid) throws SQLException ;
 
 }

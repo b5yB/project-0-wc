@@ -14,6 +14,12 @@ public interface UserDao {
 	
 	void createApplication(Application a) throws SQLException;
 	
+	void makeDeposit(double balance, int acctnum, double deposit) throws SQLException;
+	
+	void makeWithdrawal(double balance, int acctnum, double withdrawal) throws SQLException;
+	
+	void transfer(double balance, int acctnum, int recievingAcctnum, double transfer) throws SQLException;
+	
 	void updateUser(User u);
 	
 	void deleteUser(User u);

@@ -10,6 +10,7 @@ public class User {
 	lastN varchar(30) not null,
 	ssn int not null unique,
 	email varchar(50) not null unique,
+	balance numeric not null,
 	bankerid int not null unique	
 	*/
 	
@@ -20,6 +21,7 @@ public class User {
 	private String lastN;
 	private int ssn;
 	private String email;
+	private double balance;
 	private int bankerid;
 	
 	public User() {
@@ -27,7 +29,7 @@ public class User {
 	}
 	
 	//to db
-	public User(String username, String password, String firstN, String lastN, int ssn, String email) {
+	public User(String username, String password, String firstN, String lastN, int ssn, String email, double balance) {
 		
 		this.username = username;
 		this.password = password;
@@ -35,11 +37,12 @@ public class User {
 		this.lastN = lastN;
 		this.ssn = ssn;
 		this.email = email;
+		this.balance = balance;
 		
 	}
 	
 	//from db
-	public User(int acctnum, String username, String password, String firstN, String lastN, int ssn, String email, int bankerid) {
+	public User(int acctnum, String username, String password, String firstN, String lastN, int ssn, String email, double balance, int bankerid) {
 		this.acctnum = acctnum;
 		this.username = username;
 		this.password = password;
@@ -47,6 +50,7 @@ public class User {
 		this.lastN = lastN;
 		this.ssn = ssn;
 		this.email = email;
+		this.balance = balance;
 		this.bankerid = bankerid;
 	}
 
@@ -105,6 +109,14 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 
 	public int getBankerid() {
 		return bankerid;
@@ -117,7 +129,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [acctnum=" + acctnum + ", username=" + username + ", password=" + password + ", firstN="
-				+ firstN + ", lastN=" + lastN + ", ssn=" + ssn + ", email=" + email + ", bankerid="
+				+ firstN + ", lastN=" + lastN + ", ssn=" + ssn + ", email=" + email + ", balance=" + balance + ", bankerid="
 				+ bankerid + "]";
 	}
 	

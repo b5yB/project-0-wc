@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project0.models.Account;
 import com.project0.models.Application;
 import com.project0.models.Employee;
 import com.project0.models.User;
@@ -66,7 +67,7 @@ public class EmployeeDaoDB implements EmployeeDao {
 			
 			//We have to loop through the ResultSet and create objects based off the return
 			while(rs.next()) {
-				appList.add(new Application(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+				appList.add(new Application(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getDouble(8)));
 			}
 			
 			return appList;
@@ -78,11 +79,12 @@ public class EmployeeDaoDB implements EmployeeDao {
 		return null;
 	}
 	
-public void approveApplication(int appnum, int bankerid) throws SQLException {
+public void approveApplication(int appnum, String username, int bankerid) throws SQLException {
 		
 		Connection con = conUtil.getCon();
 		
 		Application app = new Application();
+		Account acc = new Account();
 		
 		String sql = "SELECT * FROM applications WHERE applications.appnum = '" + appnum + "'";
 		
@@ -97,12 +99,13 @@ public void approveApplication(int appnum, int bankerid) throws SQLException {
 			app.setLastN(rs.getString(5));
 			app.setSsn(rs.getInt(6));
 			app.setEmail(rs.getString(7));
+			app.setOpeningBalance(rs.getDouble(8));
 		}
 		
 		
 		//We will still create the sql string, but with some small changes
-		String sql2 = "INSERT INTO users(username, password, firstN, lastN, ssn, email, bankerid) values"
-				+ "(?,?,?,?,?,?,?)";
+		String sql2 = "INSERT INTO users(username, password, firstN, lastN, ssn, email, balance, bankerid) values"
+				+ "(?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql2);
 		
 		ps.setString(1, app.getUsername());
@@ -111,14 +114,52 @@ public void approveApplication(int appnum, int bankerid) throws SQLException {
 		ps.setString(4, app.getLastN());
 		ps.setInt(5, app.getSsn());
 		ps.setString(6, app.getEmail());
-		ps.setInt(7, bankerid);
+		ps.setDouble(7, app.getOpeningBalance());
+		ps.setInt(8, bankerid);
 		
 		ps.execute();
 		
-		String sql3 = "DELETE FROM applications WHERE applications.appnum = '" + appnum + "'";
+		/*
+		create table if not exists accounts (
+				acctid int primary key generated always as identity,
+				useracctnum int references users(acctnum) not null unique,
+				firstN varchar(30) not null,
+				lastN varchar(30) not null,
+				balance int not null,
+				bankerid int not null unique	
+			);
+		*/
 		
-		PreparedStatement ps2 = con.prepareStatement(sql3);
+		/*
+		String sql3 = "SELECT * FROM users WHERE users.username = '" + username + "'";
+			
+		Statement s2 = con.createStatement();
+		ResultSet rs2 = s2.executeQuery(sql3);
+			
+		while(rs2.next()) {
+				
+			acc.setUserAcctNum(rs2.getInt(1));
+			acc.setFirstN(rs2.getString(4));
+			acc.setLastN(rs2.getString(5));
+			acc.setBankerid(rs2.getInt(8));
+		}
+		
+		String sql4 = "INSERT INTO accounts(userAcctNum, firstN, lastN, balance, bankerid) values"
+				+ "(?,?,?,?,?)";
+		PreparedStatement ps2 = con.prepareStatement(sql4);
+		
+		ps2.setInt(1, acc.getUserAcctNum());
+		ps2.setString(2, acc.getFirstN());
+		ps2.setString(3, acc.getLastN());
+		ps2.setDouble(4, app.getOpeningBalance());
+		ps2.setInt(5, bankerid);
+		
 		ps2.execute();
+		*/
+		
+		String sql5 = "DELETE FROM applications WHERE applications.appnum = '" + appnum + "'";
+		PreparedStatement ps3 = con.prepareStatement(sql5);
+		ps3.execute();
 		
 		
 	}

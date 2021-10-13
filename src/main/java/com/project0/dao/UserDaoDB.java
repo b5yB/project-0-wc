@@ -16,26 +16,22 @@ public class UserDaoDB implements UserDao {
 	
 ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 	
-	//Use Statements to talk to our database
 	@Override
 	public List<User> getAllUsers() {
 		
 		List<User> userList = new ArrayList<User>();
 		
 		try {
-			//Make the actual connection to the db
+	
 			Connection con = conUtil.getCon();
 			
-			//Create a simple statement
 			String sql = "SELECT * FROM users";
 			
-			//We need to create a statement with the sql string
 			Statement s = con.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			
-			//We have to loop through the ResultSet and create objects based off the return
 			while(rs.next()) {
-				userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getInt(8)));
+				userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getInt(8), rs.getInt(9)));
 			}
 			
 			return userList;
@@ -68,7 +64,8 @@ ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 				user.setLastN(rs.getString(5));
 				user.setSsn(rs.getInt(6));
 				user.setEmail(rs.getString(7));
-				user.setBankerid(rs.getInt(8));
+				user.setBalance(rs.getInt(8));
+				user.setBankerid(rs.getInt(9));
 			}
 			
 			return user;
@@ -78,18 +75,14 @@ ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 		}
 		return null;
 	}
-
-	//We use prepared statements to precompile the sql query and protect against SQL Injection
 	
 	@Override
 	public void createApplication(Application a) throws SQLException {
 		
-		
 		Connection con = conUtil.getCon();
 		
-		//We will still create the sql string, but with some small changes
-		String sql = "INSERT INTO applications(username, password, firstN, lastN, ssn, email) values"
-				+ "(?,?,?,?,?,?)";
+		String sql = "INSERT INTO applications(username, password, firstN, lastN, ssn, email, openingBalance) values"
+				+ "(?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		
 		ps.setString(1, a.getUsername());
@@ -98,10 +91,68 @@ ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 		ps.setString(4, a.getLastN());
 		ps.setInt(5, a.getSsn());
 		ps.setString(6, a.getEmail());
+		ps.setDouble(7, a.getOpeningBalance());
 		
 		ps.execute();
 		
 	}
+	
+	@Override
+	public void makeDeposit(double balance, int acctnum, double deposit) throws SQLException {
+			
+			Connection con = conUtil.getCon();
+			
+			String sql = "UPDATE users SET balance = balance + ?"  + "WHERE users.acctnum = ?";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setDouble(1, deposit);
+			ps.setInt(2, acctnum);
+			
+			ps.execute();
+			
+	}
+	
+	@Override
+	public void makeWithdrawal(double balance, int acctnum, double withdrawal) throws SQLException {
+		
+		Connection con = conUtil.getCon();
+		
+		String sql = "UPDATE users SET balance = balance - ?"  + "WHERE users.acctnum = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setDouble(1, withdrawal);
+		ps.setInt(2, acctnum);
+		
+		ps.execute();
+		
+	}
+
+	@Override
+	public void transfer(double balance, int acctnum, int recievingAcctnum, double transfer) throws SQLException {
+		Connection con = conUtil.getCon();
+		
+		String sql = "UPDATE users SET balance = balance - ?"  + "WHERE users.acctnum = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+
+		ps.setDouble(1, transfer);
+		ps.setInt(2, acctnum);
+		
+		ps.execute();
+	
+		String sql2 = "UPDATE users SET balance = balance + ?"  + "WHERE users.acctnum = ?";
+		
+		PreparedStatement ps2 = con.prepareStatement(sql2);
+
+		ps2.setDouble(1, transfer);
+		ps2.setInt(2, recievingAcctnum);
+		
+		ps2.execute();
+		
+	}
+
 
 	@Override
 	public void updateUser(User u) {
@@ -144,5 +195,4 @@ ConnectionUtil conUtil = ConnectionUtil.getConUtil();
 		
 		
 	}
-
 }
